@@ -1,0 +1,68 @@
+1. User creates an account and signs in
+
+  - Every business table has a user_id.
+  - That means all data is owned by a specific user.
+  - user log in just using phone no.user give phone no and name in log in page. api handles log in and redirect to dashboard.
+ 
+2. User sets up accounts
+
+  - Use the [accounts table](G:\vue_laravel project\testing laravel\laravel-
+    app\database\migrations\2026_06_17_000002_create_accounts_table.php) to store places where money lives.
+  - Examples: Cash, Bank, Card, etc.
+  - opening_balance gives the starting amount.
+  - is_default can mark the main account for quick transaction entry.
+
+3. User creates categories
+
+  - Use the [categories table](G:\vue_laravel project\testing laravel\laravel-
+    app\database\migrations\2026_06_17_000001_create_categories_table.php).
+  - Categories are split by type: income or expense.
+  - Examples: Salary, Food, Transport, Rent.
+  - This helps group transactions and build reports.
+
+4. User records transactions
+
+  - Use the [transactions table](G:\vue_laravel project\testing laravel\laravel-
+    app\database\migrations\2026_06_17_000003_create_transactions_table.php).
+  - Each transaction belongs to:
+      - one user
+      - one account
+      - optionally one category
+  - transaction_type tells you whether it adds money (income) or removes money (expense).
+  - amount, transaction_date, title, and description store the actual entry.
+
+5. Budget planning
+
+  - Use the [budgets table](G:\vue_laravel project\testing laravel\laravel-
+    app\database\migrations\2026_06_17_000004_create_budgets_table.php).
+  - A budget belongs to a user and can optionally be tied to a category.
+  - period can be weekly, monthly, yearly, or custom.
+  - The app can compare actual spending in transactions against budget limits.
+
+6. Dashboard and reports
+  From these tables, the app can calculate:
+
+  - total income
+  - total expenses
+  - account balances
+  - category-wise spending
+  - budget usage
+  - recent transactions
+  - monthly summaries
+
+How the flow works together
+
+  - User logs in.
+  - User creates accounts and categories.
+  - User adds income or expense transactions.
+  - The app updates reports and balances from transaction history.
+  - User sets budgets.
+  - The app compares spending against budgets and highlights overspending.
+
+  
+  In plain terms
+  This schema is built for:
+
+  - organizing it by account and category
+  - recording every income/expense event
+  - comparing spending against budgets
