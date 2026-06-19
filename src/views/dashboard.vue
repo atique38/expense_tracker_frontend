@@ -585,6 +585,14 @@ onMounted(loadDashboard)
             Accounts
           </RouterLink>
           <RouterLink
+            :to="{ name: 'categories' }"
+            class="rail-link"
+            active-class="active"
+            exact-active-class="active"
+          >
+            Categories
+          </RouterLink>
+          <RouterLink
             :to="{ name: 'transactions' }"
             class="rail-link"
             active-class="active"
@@ -669,7 +677,11 @@ onMounted(loadDashboard)
                 <p class="eyebrow">Cash flow</p>
                 <h3>Weekly movement</h3>
               </div>
-              <span class="panel-badge">Income vs Expense</span>
+              <div class="panel-badge chart-badge" aria-label="Income versus expense">
+                <span class="chart-badge-income">Income</span>
+                <span class="chart-badge-separator">vs</span>
+                <span class="chart-badge-expense">Expense</span>
+              </div>
             </div>
 
             <div v-if="weeklyFlow.length" class="chart">
@@ -1387,6 +1399,31 @@ onMounted(loadDashboard)
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   white-space: nowrap;
+}
+
+.chart-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+}
+
+.chart-badge-income {
+  color: #7ea0ff;
+}
+
+.chart-badge-separator {
+  color: rgba(232, 237, 247, 0.56);
+}
+
+.chart-badge-expense {
+  color: #71e7d0;
+}
+
+.chart-badge-income,
+.chart-badge-separator,
+.chart-badge-expense {
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .empty-state {

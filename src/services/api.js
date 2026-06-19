@@ -54,6 +54,26 @@ export function fetchCategories(userId) {
   return requestJson(`/api/users/${userId}/categories`)
 }
 
+export function createCategory(userId, payload) {
+  return requestJson(`/api/users/${userId}/categories`, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  })
+}
+
+export function updateCategory(userId, categoryId, payload) {
+  return requestJson(`/api/users/${userId}/categories/${categoryId}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  })
+}
+
+export function deleteCategory(userId, categoryId) {
+  return requestJson(`/api/users/${userId}/categories/${categoryId}`, {
+    method: 'DELETE',
+  })
+}
+
 export function createAccount(userId, payload) {
   return requestJson(`/api/users/${userId}/accounts`, {
     method: 'POST',

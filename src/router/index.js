@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '@/views/dashboard.vue'
 import AccountsView from '@/views/accounts.vue'
+import CategoriesView from '@/views/categories.vue'
 import LoginView from '@/views/login.vue'
 import TransactionsView from '@/views/transactions.vue'
 import BudgetsView from '@/views/budgets.vue'
@@ -33,6 +34,14 @@ const router = createRouter({
       path: '/dashboard/accounts',
       name: 'accounts',
       component: AccountsView,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/dashboard/categories',
+      name: 'categories',
+      component: CategoriesView,
       meta: {
         requiresAuth: true,
       },

@@ -23,6 +23,7 @@ const avatarLabel = computed(() => {
 const navItems = [
   { name: 'dashboard', label: 'Overview', key: 'dashboard' },
   { name: 'accounts', label: 'Accounts', key: 'accounts' },
+  { name: 'categories', label: 'Categories', key: 'categories' },
   { name: 'transactions', label: 'Transactions', key: 'transactions' },
   { name: 'budgets', label: 'Budgets', key: 'budgets' },
 ]

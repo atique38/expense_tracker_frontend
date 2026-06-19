@@ -526,7 +526,7 @@ onMounted(loadBudgets)
             <p class="section-kicker">Setup</p>
             <h3>Create budget</h3>
           </div>
-          <span class="section-panel-badge">Laravel budgets endpoint</span>
+          
         </div>
 
         <form class="section-form" @submit.prevent="submitBudget" novalidate>

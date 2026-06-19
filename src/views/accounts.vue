@@ -466,7 +466,7 @@ onMounted(loadAccounts)
             <p class="section-kicker">Setup</p>
             <h3>Create account</h3>
           </div>
-          <span class="section-panel-badge">Laravel accounts endpoint</span>
+          
         </div>
 
         <form class="section-form" @submit.prevent="submitAccount" novalidate>
